@@ -235,7 +235,7 @@ widgets:
         # Author's current location
         # location: Your location
         # URL or path to the avatar image
-        avatar: /figure/pho.jpg
+        avatar:
         # Whether show the rounded avatar image
         avatar_rounded: false
         # Email address for the Gravatar
@@ -273,12 +273,12 @@ widgets:
     # Recommendation links widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: links
+        # position: left
+        # type: links
         # Names and URLs of the sites
-        links:
-            Hexo: https://hexo.io
-            Bulma: https://bulma.io
+        # links:
+        #     Hexo: https://hexo.io
+        #     Bulma: https://bulma.io
     # Categories widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
