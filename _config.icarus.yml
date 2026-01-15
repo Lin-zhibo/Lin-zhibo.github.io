@@ -165,9 +165,17 @@ search:
 # Comment plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
 comment:
-    type: disqus
-    # Disqus shortname
-    shortname: ''
+    type: utterances
+    # 格式必须是：'你的用户名/你的仓库名'
+    # 根据你的信息，这里应该是：
+    repo: 'Lin-zhibo/blog-comments' 
+    # 让每篇文章对应一个 Issue，标题就是文章路径
+    issue_term: pathname
+    # 评论区的主题颜色
+    # 因为你用的是 cyberpunk 主题，这里一定要选 dark 模式，否则会有白底很难看
+    theme: github-dark
+    # 跨域设置，保持默认
+    crossorigin: anonymous
 # Donate plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
 # donates:
