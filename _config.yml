@@ -62,4 +62,4 @@ theme: icarus
 deploy:
   type: git
   repository: git@github.com:Lin-zhibo/Lin-zhibo.github.io.git
-  branch: main
+  branch: publish
