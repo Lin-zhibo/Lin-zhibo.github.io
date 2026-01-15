@@ -1,0 +1,41 @@
+name: Deploy Hexo with SSH
+
+on:
+  push:
+    branches:
+      - main # 源码分支
+
+jobs:
+  hexo-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Setup SSH Keys
+        # 这一步会读取你刚才设置的 Secret
+        env:
+            SSH_PRIVATE_KEY: ${{ secrets.HEXO_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          # 配置 Git 用户信息（提交记录里显示的名字）
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+
+      - name: Deploy
+        # 这里会真正执行 hexo d，使用 _config.yml 里的配置
+        run: npm run deploy
