@@ -1,7 +1,7 @@
 # Version of the configuration file
 version: 5.1.0
 # Icarus theme variant, can be "default" or "cyberpunk"
-variant: default
+variant: cyberpunk
 # Path or URL to the website's logo
 logo: /img/logo.svg
 # Page metadata configurations
@@ -59,17 +59,17 @@ head:
         # You should leave this blank for most of the time
         description: 
         # Twitter card type (twitter:card)
-        twitter_card: 
-        # Twitter ID (twitter:creator)
-        twitter_id: 
-        # Twitter Site (twitter:site)
-        twitter_site: 
-        # Google+ profile link (deprecated)
-        google_plus: 
-        # Facebook admin ID
-        fb_admins: 
-        # Facebook App ID
-        fb_app_id: 
+        # twitter_card: 
+        # # Twitter ID (twitter:creator)
+        # twitter_id: 
+        # # Twitter Site (twitter:site)
+        # twitter_site: 
+        # # Google+ profile link (deprecated)
+        # google_plus: 
+        # # Facebook admin ID
+        # fb_admins: 
+        # # Facebook App ID
+        # fb_app_id: 
     # Structured data of the page
     # https://developers.google.com/search/docs/guides/intro-structured-data
     structured_data:
@@ -118,7 +118,7 @@ navbar:
 # Page footer configurations
 footer:
     # Copyright text
-    copyright: © 2019
+    copyright: © 2024
     # Links to be shown on the right of the footer section
     links:
         Creative Commons:
@@ -136,7 +136,7 @@ article:
     highlight:
         # Code highlight themes
         # https://github.com/highlightjs/highlight.js/tree/master/src/styles
-        theme: atom-one-light
+        theme: tomorrow-night
         # Show copy code button
         clipboard: true
         # Default folding status of the code blocks. Can be "", "folded", "unfolded"
@@ -231,13 +231,13 @@ widgets:
         # Author name
         author: ZeeBo.Lin
         # Author title
-        author_title: Always A Stu
+        author_title: Always Be A Student
         # Author's current location
         # location: Your location
         # URL or path to the avatar image
-        avatar:
+        avatar: /img/head.png
         # Whether show the rounded avatar image
-        avatar_rounded: false
+        avatar_rounded: true
         # Email address for the Gravatar
         gravatar: 
         # URL or path for the follow button
