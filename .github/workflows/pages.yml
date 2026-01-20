@@ -12,30 +12,38 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: recursive # 必须开启，确保 Icarus 主题完整下载
 
-      - name: Use Node.js 22
+      - name: Use Node.js 20 LTS
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '20' # 推荐改为 20，兼容性最好
           cache: 'npm'
 
       - name: Install Dependencies
+        # 这里非常重要：它会安装 package.json 里记录的 markdown-it 和 mermaid 插件
         run: npm install
 
+      - name: Build Site
+        # 新增步骤：显式生成静态文件。如果这里报错，就不会执行后面的部署
+        run: |
+          npx hexo clean
+          npx hexo generate
+
       - name: Setup SSH Keys
-        # 这一步会读取你刚才设置的 Secret
         env:
             SSH_PRIVATE_KEY: ${{ secrets.HEXO_DEPLOY_KEY }}
         run: |
           mkdir -p ~/.ssh/
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+          # 注意：如果你是部署到 GitHub Pages，这里是 github.com
+          # 如果你是部署到自己的 VPS，请把 github.com 换成你 VPS 的 IP 或域名
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          # 配置 Git 用户信息（提交记录里显示的名字）
+          
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
 
       - name: Deploy
-        # 这里会真正执行 hexo d，使用 _config.yml 里的配置
+        # 此时 public 文件夹已经生成好了，直接部署
         run: npm run deploy
