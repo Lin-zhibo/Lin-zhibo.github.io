@@ -27,3 +27,23 @@ $neon-green = #00ff41  // 赛博朋克绿 (悬浮)
     
     &:hover
         color: $neon-green !important // 鼠标悬浮时变为绿色
+
+// ============================================================
+// 4. Mermaid 流程图样式修复 (追加到文件末尾)
+// ============================================================
+
+// 针对包裹 mermaid 代码的 pre 标签进行"隐身"处理
+// 使用 :has 选择器精准打击，只去除 mermaid 的背景，不影响其他代码块
+pre:has(code.language-mermaid)
+    background-color: transparent !important
+    border: none !important
+    padding: 0 !important
+    box-shadow: none !important
+    margin: 1rem 0 !important
+
+// 确保生成的 SVG 图表居中且背景透明
+.mermaid
+    background: transparent !important
+    display: flex
+    justify-content: center
+    margin: 0 auto
