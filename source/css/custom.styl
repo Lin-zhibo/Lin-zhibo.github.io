@@ -29,21 +29,44 @@ $neon-green = #00ff41  // 赛博朋克绿 (悬浮)
         color: $neon-green !important // 鼠标悬浮时变为绿色
 
 // ============================================================
-// 4. Mermaid 流程图样式修复 (追加到文件末尾)
+// 4. Mermaid 流程图样式修复 (增强版)
 // ============================================================
 
-// 针对包裹 mermaid 代码的 pre 标签进行"隐身"处理
-// 使用 :has 选择器精准打击，只去除 mermaid 的背景，不影响其他代码块
+// 1. 外层容器修复
 pre:has(code.language-mermaid)
     background-color: transparent !important
     border: none !important
-    padding: 0 !important
     box-shadow: none !important
-    margin: 1rem 0 !important
+    padding: 0 !important
+    margin: 2rem 0 !important
+    // 关键修复：让容器允许内容溢出，防止切边
+    overflow: visible !important 
+    // 关键修复：重置行高，Icarus 的高行高会导致文字错位
+    line-height: normal !important 
 
-// 确保生成的 SVG 图表居中且背景透明
+// 2. 内部 Code 标签修复
+// Icarus 会强制给 code 标签加背景和字体设置，这里必须强制覆盖
+pre code.language-mermaid
+    background: transparent !important
+    border: none !important
+    color: inherit !important
+    // 关键修复：强制重置字体大小，防止字号过大撑破 SVG
+    font-size: 16px !important 
+    font-family: sans-serif !important
+
+// 3. SVG 图形本身修复
 .mermaid
     background: transparent !important
     display: flex
     justify-content: center
     margin: 0 auto
+    // 关键修复：允许 SVG 自动缩放宽度，但最大不超过屏幕
+    width: 100% !important
+    max-width: 100% !important
+    height: auto !important
+
+// 4. (可选) 针对 SVG 内部文字的强制修正
+// 如果上面的不起作用，这段代码会强制修正 SVG 内部的文字样式
+g.node foreignObject
+    overflow: visible !important
+
