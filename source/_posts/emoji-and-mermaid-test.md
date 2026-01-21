@@ -3,6 +3,11 @@ title: emoji and mermaid test
 date: 2026-01-16 17:09:35
 tags:
 ---
+
+# emoji and mermaid test
+
+<!-- more -->
+
 ## Emoji 测试
 
 Hello World 😄 🚀
