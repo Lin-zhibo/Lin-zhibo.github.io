@@ -29,44 +29,44 @@ $neon-green = #00ff41  // 赛博朋克绿 (悬浮)
         color: $neon-green !important // 鼠标悬浮时变为绿色
 
 // ============================================================
-// 4. Mermaid 流程图样式修复 (增强版)
+// 4. Mermaid 流程图样式修复 (精细调整版)
 // ============================================================
 
-// 1. 外层容器修复
-pre:has(code.language-mermaid)
-    background-color: transparent !important
-    border: none !important
-    box-shadow: none !important
-    padding: 0 !important
-    margin: 2rem 0 !important
-    // 关键修复：让容器允许内容溢出，防止切边
-    overflow: visible !important 
-    // 关键修复：重置行高，Icarus 的高行高会导致文字错位
-    line-height: normal !important 
-
-// 2. 内部 Code 标签修复
-// Icarus 会强制给 code 标签加背景和字体设置，这里必须强制覆盖
-pre code.language-mermaid
-    background: transparent !important
-    border: none !important
-    color: inherit !important
-    // 关键修复：强制重置字体大小，防止字号过大撑破 SVG
-    font-size: 16px !important 
-    font-family: sans-serif !important
-
-// 3. SVG 图形本身修复
+// 1. 容器样式：控制整体大小和位置
 .mermaid
     background: transparent !important
-    display: flex
-    justify-content: center
-    margin: 0 auto
-    // 关键修复：允许 SVG 自动缩放宽度，但最大不超过屏幕
-    width: 100% !important
-    max-width: 100% !important
-    height: auto !important
+    border: none !important
+    margin: 2rem auto !important
+    text-align: center !important
+    
+    // 【修复尺寸过大】
+    // 不再强制 100%，而是限制最大宽度，让图片按需缩放
+    width: auto !important 
+    max-width: 35% !important  // 如果觉得还大，可以改成 600px
+    display: flex !important
+    justify-content: center !important
 
-// 4. (可选) 针对 SVG 内部文字的强制修正
-// 如果上面的不起作用，这段代码会强制修正 SVG 内部的文字样式
-g.node foreignObject
+// 2. SVG 内部样式：修复文字截断和字体大小
+.mermaid svg
+    // 【修复文字截断】
+    // Icarus 默认行高通常是 1.5 或 2，这会导致 Mermaid 计算的高度不够，文字掉出框外
+    line-height: normal !important 
+    
+    // 【强制字体】
+    // 强制使用标准字体，防止因自定义字体宽度不同导致的计算偏差
+    font-family: "Arial", sans-serif !important 
+    font-size: 16px !important
+    
+    // 确保 SVG 本身也是透明背景
+    background-color: transparent !important
+    
+    // 允许 SVG 内部元素溢出（防止个别超长文字被切掉）
     overflow: visible !important
 
+// 3. 针对节点内部的特定修复 (强制文字完整显示)
+// Mermaid 使用 foreignObject 渲染 HTML 标签，必须允许其溢出
+.mermaid g.node foreignObject,
+.mermaid g.node div
+    overflow: visible !important
+    line-height: 1.2 !important // 稍微紧凑一点的行高，防止撑破盒子
+    color: #fff !important      // 确保文字颜色（根据你的暗色主题）
