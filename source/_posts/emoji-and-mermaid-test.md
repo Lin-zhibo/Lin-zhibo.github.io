@@ -1,9 +1,8 @@
 ---
 title: emoji and mermaid test
 date: 2026-01-16 17:09:35
-tags:
+tags: test
 ---
-
 # emoji and mermaid test
 
 <!-- more -->

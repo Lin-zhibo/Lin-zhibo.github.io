@@ -1,7 +1,7 @@
 ---
 title: toc test
 date: 2026-01-22 15:42:19
-tags:
+tags: test
 excerpt: "toc"
 toc: true
 ---
