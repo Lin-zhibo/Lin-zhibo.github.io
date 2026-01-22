@@ -80,6 +80,20 @@ markdown:
   plugins:
     - markdown-it-emoji  # 启用 Emoji 支持
 
+    - name: markdown-it-anchor
+      options:
+        level: [1, 2, 3, 4] # 对哪些标题生成锚点
+        permalink: false     # 开启标题旁的 ¶ 或 # 符号
+        permalinkClass: header-anchor
+        permalinkSymbol: '#' # 标题旁显示的符号，也可以换成 '¶'
+        permalinkBefore: true # 符号显示在标题前面
+
+    - name: markdown-it-toc-done-right
+      options:
+        containerClass: 'toc' # 生成目录的 CSS 类名
+        listType: 'ul'
+        level: [2, 3] # 目录包含的标题层级
+
 # --- Mermaid 流程图配置 ---
 # mermaid:
 #   enable: true

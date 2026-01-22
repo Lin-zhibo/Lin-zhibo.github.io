@@ -1,0 +1,30 @@
+# _config.page.yml
+widgets: []  # 清空所有 widgets → 无左无右栏 → 单栏全宽
+sidebar:
+    left:
+        sticky: false
+    right:
+        sticky: false
+
+# 只用于 page 布局（包括 About）的覆盖配置 → 两栏（无左栏，只右栏友情链接）
+# widgets:
+#     # 清空左栏
+#     # 右栏只放 links widget（内置卡片式友情链接）
+#     -
+#         position: right
+#         type: links
+#         links:
+#             鹏叔的技术博客: https://pengzhanbo.cn
+#                 # 可选描述（会显示在名称下，像卡片副标题）
+#                 desc: 优秀的 Hexo 主题配置分享
+#             示例站点2: https://example.com
+#                 desc: 另一个友站描述
+#             示例站点3: https://example3.com
+#                 icon: fas fa-link  # 可选 FontAwesome 图标（默认无）
+#                 desc: 描述文字
+#             # 添加更多友站（名称: URL \n desc: 描述）
+# sidebar:
+#     left:
+#         sticky: false
+#     right:
+#         sticky: true  # 推荐 true，让友情链接卡片固定滚动（方便查看）

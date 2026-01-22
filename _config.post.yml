@@ -1,4 +1,4 @@
-# 只用于文章页（post 布局）的配置覆盖
+# _config.post.yml
 widgets:
     # 无左边栏 widgets
     # 只右边栏 TOC（文章页两栏：宽内容 + 右目录）

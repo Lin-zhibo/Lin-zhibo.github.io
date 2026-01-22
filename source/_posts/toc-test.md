@@ -6,6 +6,8 @@ excerpt: "toc"
 toc: true
 ---
 
+${toc}
+
 # new-bee
 
 may be
@@ -25,3 +27,17 @@ content
 ### 123456
 
 ?
+
+
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+
+[up](/2026/01/22/link-test/#mermaid-link)
