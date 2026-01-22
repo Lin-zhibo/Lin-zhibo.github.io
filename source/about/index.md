@@ -107,7 +107,7 @@ sidebar:
 <a href="https://github.com/Lin-zhibo" target="_blank" class="friend-link">
 <div class="friend-card">
 <div class="friend-avatar">
-<img src="/img/head.png" alt="ZeeBo.Lin">
+<img src="/img/head.png" alt="ZBo">
 </div>
 <div class="friend-info">
 <h3>我的 GitHub</h3>
@@ -125,6 +125,18 @@ sidebar:
 <div class="friend-info">
 <h3>燕圣书贤</h3>
 <p>CS-hf</p>
+</div>
+</div>
+</a>
+
+<a href="https://blog.csdn.net/Samdy_L?type=blog" target="_blank" class="friend-link">
+<div class="friend-card">
+<div class="friend-avatar">
+<img src="https://profile-avatar.csdnimg.cn/ed71f9ee426e40c398261e81c4fe4c76_samdy_l.jpg!1" alt="Samdy">
+</div>
+<div class="friend-info">
+<h3>Samdy.L</h3>
+<p>WHU高材生ultra++，牛逼大大滴</p>
 </div>
 </div>
 </a>
