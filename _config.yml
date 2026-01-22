@@ -105,3 +105,120 @@ markdown:
 #   external:
 #     enable: true  # 开启 External，使用 CDN 加载，这能解决 Icarus 的兼容问题
 #     platform: cdnjs # 使用稳定的 cdnjs 源
+
+# live2d 配置
+# _config.yml
+OhMyLive2d:
+  enable: true  # 是否启用 OhMyLive2D 看板娘插件，设置为 true 表示启用
+  CDN: https://unpkg.com/oh-my-live2d  # 主插件的 CDN 地址，用于加载 OhMyLive2D 的核心脚本（推荐使用 latest 版本以获取最新功能）
+  # CDN: https://registry.npmmirror.com/oh-my-live2d/0.13/files/dist/index.min.js  # （原注释保留）可指定固定版本的 CDN 地址
+  
+  option:
+    dockedPosition: 'right'
+    # importType: 'cubism2' # 导入类型, 默认使用全量导入: complete , 可选值: complete, cubism2, cubism5  # （原注释保留）指定 Cubism SDK 的导入方式，默认 complete（全量导入）
+    
+    libraryUrls: # 自定义 Cubism SDK 外部资源地址，用于加载不同版本的 Live2D 核心库
+      complete: https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js  # 全量导入（包含 Cubism2 和 Cubism5）
+      cubism2: https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js   # 仅 Cubism2 版本的核心库
+      cubism5: https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js   # 仅 Cubism5 版本的核心库
+    
+    # menus:
+    # items: |
+    # (defaultItems)=>{
+    # return [
+    # ...defaultItems,
+    # {
+    # id: 'github',
+    # icon: 'github-fill',
+    # title: '我的github',
+    # onClick: ()=>window.open('https://github.com/hacxy')
+    # }
+    # ]
+    # }  # （原注释保留）自定义菜单项示例，可在看板娘上添加额外按钮
+    # items:
+    # - id: 'github'
+    # icon: 'github-fill'
+    # title: '我的github'
+    # onClick: ()=>window.open('https://github.com/hacxy')  # （原注释保留）另一种自定义菜单项的写法
+    
+    mobileDisplay: true # 是否在移动端（手机、平板）显示看板娘，true 为显示，false 为隐藏
+    
+    models:  # 看板娘模型列表，可配置多个模型（会随机或顺序切换）
+      - path: https://registry.npmmirror.com/live2d-widget-model-shizuku/1.0.5/files/assets/shizuku.model.json  # 第一个模型的路径（shizuku 模型）
+        mobilePosition: [-10, 23] # 移动端时模型在舞台中的位置偏移 [横坐标, 纵坐标]，单位像素
+        mobileScale: 0.1 # 移动端时模型的缩放比例，默认 0.1（较小以适应屏幕）
+        mobileStageStyle: # 移动端时舞台（容器）的自定义样式
+          width: 180    # 舞台宽度（像素）
+          height: 166   # 舞台高度（像素）
+        motionPreloadStrategy: IDLE # 动作预加载策略，可选值：ALL（全部预载）、IDLE（空闲时预载）、NONE（不预载），默认 IDLE
+        position: [-10, 35] # PC 端时模型在舞台中的位置偏移 [横坐标, 纵坐标]
+        scale: 0.15 # PC 端模型的缩放比例，默认 0.1
+        # showHitAreaFrames: false # 是否显示点击区域 默认值: false  # （原注释保留）是否显示模型的点击热区边框（调试用）
+        stageStyle:  # PC 端舞台（容器）的自定义样式
+          width: 250 # 舞台宽度（像素）
+          height: 250 # 舞台高度（像素）
+      
+      - path: 'https://registry.npmmirror.com/live2d-widget-model-koharu/1.0.5/files/assets/koharu.model.json'  # 第二个模型（koharu）
+        scale: 0.12          # PC 端缩放比例
+        position: [0, 0]     # PC 端位置偏移
+        stageStyle:          # PC 端舞台样式
+          width: 250         # 舞台宽度
+        mobileScale: 0.08    # 移动端缩放比例
+        mobilePosition: [0, 0]  # 移动端位置偏移
+        mobileStageStyle:    # 移动端舞台样式
+          width: 180         # 舞台宽度
+      
+      - path: 'https://registry.npmmirror.com/live2d-widget-model-haruto/1.0.5/files/assets/haruto.model.json'  # 第三个模型（haruto）
+        scale: 0.12          # PC 端缩放比例
+        position: [0, 0]     # PC 端位置偏移
+        mobileScale: 0.08    # 移动端缩放比例
+        mobilePosition: [0, 0]  # 移动端位置偏移
+        mobileStageStyle:    # 移动端舞台样式
+          width: 180         # 舞台宽度
+        stageStyle:          # PC 端舞台样式
+          width: 250         # 舞台宽度
+    
+    parentElement: document.body # 看板娘组件挂载的父元素，默认挂载到 body，也可指定其他 DOM 元素
+    primaryColor: 'var(--btn-bg)' # 主题主色，支持 CSS 变量，可用于按钮、提示框等配色
+    sayHello: false # 是否在插件初始化时在控制台打印项目信息（版本、作者等），false 为不打印
+    
+    tips:  # 提示消息相关设置（看板娘头顶的气泡提示）
+      style:               # PC 端提示框样式
+        width: 230         # 提示框宽度（像素）
+        height: 120        # 提示框高度（像素）
+        left: calc(50% - 20px)  # 水平位置（相对于舞台）
+        top: -100px        # 垂直位置（负值表示在模型上方）
+      mobileStyle:         # 移动端提示框样式
+        width: 180
+        height: 80
+        left: calc(50% - 30px)
+        top: -100px
+      idleTips:            # 空闲时（无交互）自动显示的提示消息
+        interval: 15000    # 提示消息切换间隔（毫秒），15000 表示 15 秒
+        # message:
+        # - 你好呀~
+        # - 欢迎来到我的小站~  # （原注释保留）可直接配置固定消息列表
+        message: |         # 自定义动态消息，这里通过 axios 请求一言 API 获取随机句子
+          function(){
+            return axios.get('https://v1.hitokoto.cn?c=i')
+              .then(function (response) {
+                return response.data.hitokoto ;
+              })
+              .catch(function (error) {
+                console.error(error);
+              });
+          }
+        # wordTheDay: true  # （原注释保留）是否启用“每日一言”功能
+        # 自定义 https://v1.hitokoto.cn 数据
+        # wordTheDay: |
+        # function(wordTheDayData){
+        # return `${wordTheDayData.hitokoto} by.${wordTheDayData.from}`;
+        # }  # （原注释保留）自定义一言显示格式
+  
+  # then: |
+  # (oml2d)=>{
+  # setTimeout(() => {
+  # oml2d.tipsMessage('hello world', 3000, 10);
+  # }, 8000);
+  # }  # （原注释保留）插件加载完成后执行的回调函数，可用于自定义交互或消息
+  #  https://oml2d.hacxy.cn/guide/hexo.html

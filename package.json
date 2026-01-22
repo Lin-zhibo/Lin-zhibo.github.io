@@ -12,6 +12,7 @@
     "version": "8.1.1"
   },
   "dependencies": {
+    "axios": "^1.13.2",
     "hexo": "^8.0.0",
     "hexo-deployer-git": "^4.0.0",
     "hexo-filter-mermaid-diagrams": "^1.0.5",
@@ -19,6 +20,7 @@
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-index": "^4.0.0",
     "hexo-generator-tag": "^2.0.0",
+    "hexo-oh-my-live2d": "^0.1.4",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-inferno": "^1.0.2",
     "hexo-renderer-markdown-it": "^7.1.1",
