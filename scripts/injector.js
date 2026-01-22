@@ -3,7 +3,9 @@ hexo.extend.injector.register('head_end', '<link rel="stylesheet" href="/css/cus
 hexo.extend.injector.register('head_end', '<link rel="stylesheet" href="/css/mermaid-transparent.css">');
 hexo.extend.injector.register('body_end', '<script src="/js/tab-title.js"></script>');
 hexo.extend.injector.register('body_end', '<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>');
-
+hexo.extend.injector.register('head_end', () => {
+  return '<link rel="stylesheet" href="/css/code-label.css">';
+});
 hexo.extend.injector.register('body_end', `
 <script>
   document.addEventListener("DOMContentLoaded", function () {
