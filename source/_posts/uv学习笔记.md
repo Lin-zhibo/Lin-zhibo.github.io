@@ -2,7 +2,7 @@
 title: uv学习笔记
 date: 2026-01-26 17:25:42
 tags: [python,uv] 
-excerpt: "uv package tool usage"
+excerpt: "uv 踩坑血泪史"
 ---
 uv命令基础结构
 
