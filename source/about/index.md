@@ -141,6 +141,19 @@ sidebar:
 </div>
 </a>
 
+<a href="https://www.cnblogs.com/dinosauria" target="_blank" class="friend-link">
+<div class="friend-card">
+<div class="friend-avatar">
+<img src="../img/dino.png" alt="Dinosaur">
+</div>
+<div class="friend-info">
+<h3>🦖</h3>
+<p>🦕</p>
+</div>
+</div>
+</a>
+
+
 </div>
 
 <br><br>
