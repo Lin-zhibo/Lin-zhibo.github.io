@@ -8,7 +8,7 @@ tags:
 3. 看板娘
 4. hexo永久链接
 5. hexo音视频支持
-6. SEO优化，bing web master
+6. SEO优化
 7. RSS支持
 8. markdown本地图片支持
 9. 鼠标指针
