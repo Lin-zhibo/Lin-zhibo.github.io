@@ -431,11 +431,6 @@ providers:
     # Name or URL of the fontawesome icon font CDN provider
     iconcdn: fontawesome
 
-# _config.icarus.yml
-math:
-    engine: katex           # 推荐使用 KaTeX，渲染速度更快
-    katex:
-        version: 0.16.9       # 锁定稳定版本
-        #cdn: https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/ # 使用可信 HTTPS CDN
+
 
 

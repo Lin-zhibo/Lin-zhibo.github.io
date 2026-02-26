@@ -78,6 +78,7 @@ markdown:
     typographer: true
     quotes: '“”‘’'
   plugins:
+    - '@iktakahiro/markdown-it-katex'
     - markdown-it-emoji  # 启用 Emoji 支持
 
     - name: markdown-it-anchor
