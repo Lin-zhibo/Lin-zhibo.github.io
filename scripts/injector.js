@@ -1,6 +1,6 @@
 // scripts/injector.js
-hexo.extend.injector.register('head_end', '<meta name="msvalidate.01" content="0638537237B7E02FB2F00B9CA0B7F869" />');//微软SEO
-hexo.extend.injector.register('head_end', '<meta name="google-site-verification" content="53k44EG1UO69Wc68WTuVIAxP7tlP8vCFf_bb3L_4c0o" />');//Google SEO
+// hexo.extend.injector.register('head_end', '<meta name="msvalidate.01" content="0638537237B7E02FB2F00B9CA0B7F869" />');//微软SEO
+// hexo.extend.injector.register('head_end', '<meta name="google-site-verification" content="53k44EG1UO69Wc68WTuVIAxP7tlP8vCFf_bb3L_4c0o" />');//Google SEO
 hexo.extend.injector.register('head_end', '<link rel="stylesheet" href="/css/custom.css">');
 hexo.extend.injector.register('head_end', '<link rel="stylesheet" href="/css/mermaid-transparent.css">');
 hexo.extend.injector.register('body_end', '<script src="/js/tab-title.js"></script>');
