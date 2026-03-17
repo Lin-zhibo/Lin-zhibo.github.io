@@ -51,3 +51,7 @@ token: a thing serving as a visible or tangible representation of a fact, qualit
 ---
 
 在上面这个例子中，token 1 表示的是b所代表的字节（比如说`0xCF`）
+
+> 个人观点，不一定正确，欢迎批评指正：
+> BPE算法进行tokenize后，出现频率较高的一连串字节编码就会被划入1个token中
+> 同时能够学习到一些语义，比如 "'.', ' '"和"'.', '\0'"（前者的句号表示这一句话的终结，但后续还有话说；后者的句号表示整个意思表述已经完成）
