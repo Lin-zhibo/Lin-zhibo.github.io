@@ -67,7 +67,11 @@ deploy:
   type: git
   repository: git@github.com:Lin-zhibo/Lin-zhibo.github.io.git
   branch: publish
-
+sitemap:
+  path: sitemap.xml
+  rel: false
+  tags: true
+  categories: true
 # --- Markdown-it 渲染器配置 (支持 Emoji) ---
 markdown:
   render:
