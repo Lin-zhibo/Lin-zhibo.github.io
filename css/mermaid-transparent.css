@@ -1,0 +1,38 @@
+.mermaid {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 20px 0 !important; /* 上下留点间距，避免太贴近文字 */
+  display: flex;
+  justify-content: center; /* 图表自动居中 */
+  align-items: center;
+
+  .label {
+    font-weight: normal;
+    font-size: 0.88rem;
+  }
+
+  .edgePath .path {
+    stroke: #02d7f2 !important; /* 连接线蓝色（赛博朋克风，可改成你主题主色） */
+  }
+
+  .arrowheadPath {
+    fill: white !important; /* 箭头白色 */
+  }
+
+  .edgeLabel {
+    background-color: rgba(13, 17, 23, 0.8) !important; /* 标签背景半透明深色 */
+    color: white !important;
+    border-radius: 4px;
+    padding: 4px 8px;
+  }
+
+  .edgeLabel rect {
+    opacity: 0 !important; /* 去除标签默认矩形边框 */
+    fill: transparent !important;
+  }
+
+  svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}

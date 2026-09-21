@@ -1,0 +1,99 @@
+/* =========================================
+   1. 语言标签样式 (保持不变)
+   ========================================= */
+.highlight {
+    position: relative;
+}
+
+.highlight::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    padding: 2px 10px;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Robo Mono", "Monaco", monospace;
+    background: #03ea6e; /* 默认颜色 */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+    content: "";
+    display: none;
+}
+
+/* 语言映射 */
+.highlight.python::before, .highlight.javascript::before, .highlight.bash::before,
+.highlight.html::before, .highlight.css::before, .highlight.java::before,
+.highlight.go::before, .highlight.c::before, .highlight.cpp::before,
+.highlight.sql::before, .highlight.yaml::before, .highlight.json::before {
+    display: block;
+}
+
+.highlight.python::before { content: "PYTHON"; background: #FFE792; }
+.highlight.javascript::before { content: "JS"; background: #F7DF1E; }
+.highlight.bash::before { content: "TERM"; background: #ff0055; color: #fff; }
+.highlight.html::before { content: "HTML"; background: #E34F26; color: #fff; }
+.highlight.css::before { content: "CSS"; background: #264de4; color: #fff;}
+.highlight.java::before { content: "JAVA"; }
+.highlight.go::before { content: "GO"; background: #00ADD8; }
+.highlight.c::before { content: "C"; }
+.highlight.cpp::before { content: "C++"; }
+
+/* =========================================
+   2. 核心修复：行号错位终极修正
+   ========================================= */
+
+/* A. 重置表格容器，确保无额外干扰 */
+figure.highlight table {
+    border: none !important;
+    margin: 0 !important;
+    border-collapse: collapse !important;
+    width: 100% !important;
+}
+
+figure.highlight td {
+    border: none !important;
+    padding: 0 !important; /* 先清除默认 Padding，后面单独加 */
+    vertical-align: top !important; /* 关键：强制顶部对齐 */
+}
+
+/* B. 强制“内容”完全一致 */
+/* 这里的关键是用 !important 锁死字体和行高 */
+figure.highlight .gutter pre,
+figure.highlight .code pre {
+    /* 1. 锁死行高：使用 px 单位比倍数更稳定，确保两边完全一样 */
+    line-height: 24px !important; 
+    
+    /* 2. 锁死字体大小 */
+    font-size: 14px !important;
+    
+    /* 3. 锁死字体：两边必须用同一种字体，否则基线不同会导致微小错位 */
+    font-family: "JetBrains Mono", Consolas, Monaco, monospace !important;
+    
+    /* 4. 清除 pre 标签自带的间距，防止第一行没对齐 */
+    margin: 0 !important;
+    padding: 0 !important; 
+    
+    background: transparent !important;
+}
+
+/* C. 恢复美观的间距 (在容器 td 上加，而不是在文字 pre 上加) */
+
+/* 左侧：行号栏 */
+figure.highlight .gutter {
+    background: rgba(0, 0, 0, 0.2) !important; /* 稍微深一点的背景 */
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important; /* 分割线 */
+    text-align: right !important;
+    width: auto !important;
+    
+    /* 这里控制行号左右的宽度，保持美观 */
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+/* 右侧：代码栏 */
+figure.highlight .code {
+    /* 这里控制代码离左边行号线的距离 */
+    padding-left: 15px !important;
+    width: 100% !important;
+}
