@@ -68,7 +68,9 @@ deploy:
   repository: git@github.com:Lin-zhibo/Lin-zhibo.github.io.git
   branch: publish
 sitemap:
-  path: sitemap.xml
+  path: 
+    - sitemap.xml
+    - sitemap.txt
   rel: false
   tags: true
   categories: true
